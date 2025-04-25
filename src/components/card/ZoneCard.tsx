@@ -178,7 +178,7 @@ export default function ZoneCard({ zone, onZoneUpdated }: ZoneCardProps) {
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 w-full max-w-md">
             <h3 className="text-lg font-semibold mb-3">Xác nhận xóa</h3>
-            <p className="mb-4">Bạn có chắc chắn muốn xóa khu vực "{zone.name}"?</p>
+            <p className="mb-4">Bạn có chắc chắn muốn xóa khu vực &quot;{zone.name}&quot;?</p>
             <div className="flex justify-end space-x-2">
               <button
                 onClick={() => setIsDeleting(false)}

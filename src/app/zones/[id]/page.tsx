@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import zoneService from '@/services/zoneService';
 import tableService from '@/services/tableService';
@@ -31,7 +31,7 @@ export default function ZoneDetailsPage() {
     fetchZoneDetails();
   }, [params.id]);
 
-  const fetchZoneDetails = async () => {
+  const fetchZoneDetails = useCallback(async () => {
     setLoading(true);
     setError(null);
     
@@ -48,24 +48,13 @@ export default function ZoneDetailsPage() {
       setZone(zoneData);
       const tablesData = await tableService.getAllTables();
       setTables(tablesData.filter(table => table.zone.id === zoneId));
-      // if (zoneData.tables) {
-      //   const tablesWithZone = zoneData.tables.map(table => ({
-      //     ...table,
-      //     zone: {
-      //       id: zoneData.id,
-      //       name: zoneData.name
-      //     },
-      //     customer: table.customer || null
-      //   }));
-      //   setTables(tablesWithZone as Table[]);
-      // }
     } catch (err) {
       console.error('Error fetching zone details:', err);
       setError('Không thể tải thông tin khu vực. Vui lòng thử lại sau.');
     } finally {
       setLoading(false);
     }
-  };
+  }, [zoneId]);
 
   const handleBackToHome = () => {
     router.push('/');
