@@ -27,10 +27,6 @@ export default function ZoneDetailsPage() {
   const [showDetailModal, setShowDetailModal] = useState(false);
   const [selectedTable, setSelectedTable] = useState<Table | null>(null);
 
-  useEffect(() => {
-    fetchZoneDetails();
-  }, [params.id]);
-
   const fetchZoneDetails = useCallback(async () => {
     setLoading(true);
     setError(null);
@@ -54,7 +50,11 @@ export default function ZoneDetailsPage() {
     } finally {
       setLoading(false);
     }
-  }, [zoneId]);
+  }, [params.id, zoneId]);
+
+  useEffect(() => {
+    fetchZoneDetails();
+  }, [fetchZoneDetails]);
 
   const handleBackToHome = () => {
     router.push('/');

@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
 import zoneService from '@/services/zoneService';
 import { Zone } from '@/types/zone';
 import ZoneCard from '@/components/card/ZoneCard';
