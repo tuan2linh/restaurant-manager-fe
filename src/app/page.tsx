@@ -72,17 +72,17 @@ export default function HomePage() {
       {/* Create Zone Modal */}
       {showCreateModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 w-full max-w-md">
-            <h2 className="text-xl font-semibold mb-4">Tạo khu vực mới</h2>
+          <div className="bg-gray-800 rounded-lg shadow-xl p-6 w-full max-w-md">
+            <h2 className="text-xl font-semibold mb-4 text-white">Tạo khu vực mới</h2>
             <form onSubmit={handleCreateZone}>
               <div className="mb-4">
-                <label htmlFor="zoneName" className="block text-sm font-medium mb-1">Tên khu vực</label>
+                <label htmlFor="zoneName" className="block text-sm font-medium mb-1 text-gray-300">Tên khu vực</label>
                 <input
                   type="text"
                   id="zoneName"
                   value={newZoneName}
                   onChange={(e) => setNewZoneName(e.target.value)}
-                  className="w-full p-2 border rounded focus:ring focus:ring-blue-300"
+                  className="w-full p-2 bg-gray-700 border-gray-600 text-white rounded focus:ring focus:ring-blue-500"
                   placeholder="Nhập tên khu vực"
                   required
                 />
@@ -91,7 +91,7 @@ export default function HomePage() {
                 <button
                   type="button"
                   onClick={() => setShowCreateModal(false)}
-                  className="px-4 py-2 border rounded hover:bg-gray-100 dark:hover:bg-gray-700"
+                  className="px-4 py-2 border border-gray-600 rounded hover:bg-gray-700 text-gray-300"
                 >
                   Huỷ
                 </button>

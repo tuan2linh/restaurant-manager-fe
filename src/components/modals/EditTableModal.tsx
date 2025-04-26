@@ -37,12 +37,12 @@ const EditTableModal: React.FC<EditTableModalProps> = ({ table, onClose, onSubmi
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white rounded-lg p-6 w-full max-w-md">
+      <div className="bg-gray-800 rounded-lg p-6 w-full max-w-md">
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-xl font-bold">Chỉnh sửa bàn {table.name}</h2>
+          <h2 className="text-xl font-bold text-white">Chỉnh sửa bàn {table.name}</h2>
           <button 
             onClick={onClose}
-            className="text-gray-500 hover:text-gray-700"
+            className="text-gray-400 hover:text-white"
           >
             ✕
           </button>
@@ -50,14 +50,14 @@ const EditTableModal: React.FC<EditTableModalProps> = ({ table, onClose, onSubmi
         
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
               Tên bàn
             </label>
             <input
               id="name"
               name="name"
               type="text"
-              className="w-full px-3 py-2 border rounded-md"
+              className="w-full px-3 py-2 border rounded-md bg-gray-700 text-white"
               value={formData.name}
               onChange={handleChange}
               required
@@ -65,7 +65,7 @@ const EditTableModal: React.FC<EditTableModalProps> = ({ table, onClose, onSubmi
           </div>
           
           <div className="mb-4">
-            <label htmlFor="capacity" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="capacity" className="block text-sm font-medium text-gray-300 mb-1">
               Sức chứa (số ghế)
             </label>
             <input
@@ -73,7 +73,7 @@ const EditTableModal: React.FC<EditTableModalProps> = ({ table, onClose, onSubmi
               name="capacity"
               type="number"
               min="1"
-              className="w-full px-3 py-2 border rounded-md"
+              className="w-full px-3 py-2 border rounded-md bg-gray-700 text-white"
               value={formData.capacity}
               onChange={handleChange}
               required
@@ -84,7 +84,7 @@ const EditTableModal: React.FC<EditTableModalProps> = ({ table, onClose, onSubmi
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2 border rounded-md hover:bg-gray-100"
+              className="px-4 py-2 border rounded-md hover:bg-gray-600 text-white"
               disabled={isSubmitting}
             >
               Hủy
